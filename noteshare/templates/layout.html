@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheet.css') }}">
 
     <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Bootstrap-4/css/bootstrap-grid.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Bootstrap-4/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheet.css') }}">
         <title>
             {% if title %}
                 Note share - {{ title }}
@@ -16,7 +19,49 @@
     </head>
 
     <body>
-        <h1>Home page</h1>
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="navbar navbar-expand-md navbar-light bg-light">
+                    <a class="navbar-brand margin-left" href="home.php">Note-share</a>
+                    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">New Note</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Estimation</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">ContactUs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">AboutUs</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-btn">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2"   aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2 margin-right">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">
+                                    <div class="border">
+                                        Username
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            {% block content %}{% endblock %}
+        </div>
     </body>
 
 </html>
