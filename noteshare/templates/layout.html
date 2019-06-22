@@ -22,20 +22,20 @@
         <div class="container-fluid">
             <div class="row">
                 <nav class="navbar navbar-expand-md navbar-light bg-light">
-                    <a class="navbar-brand margin-left" href="home.php">Note-share</a>
+                    <a class="navbar-brand margin-left" href="{{ url_for('home') }}">Note-share</a>
                     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">New Note</a>
+                                <a class="nav-link" href="{{ url_for('home') }}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Estimation</a>
+                                <a class="nav-link" href="#">Create Note</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">ContactUs</a>
+                                <a class="nav-link" href="#">Contact Us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">AboutUs</a>
+                                <a class="nav-link" href="#">About Us</a>
                             </li>
                         </ul>
                     </div>
@@ -60,7 +60,9 @@
                     </div>
                 </nav>
             </div>
-            {% block content %}{% endblock %}
+            <div class="row">
+                {% block content %}{% endblock %}
+            </div>
         </div>
     </body>
 

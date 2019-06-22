@@ -1,84 +1,14 @@
-.heading-index {
-    background-image: linear-gradient(#660000, #800000);
-}
-
-.heading-text {
-    margin-left: 8%;
-    padding: 2% 0% 2% 0%;
-    color: #fff;
-}
-
-.description-text {
-    padding-top: 5%;
-    padding-left: 5%;
-    font-size: 25px;
-    font-weight: 300;
-}
-
-.signup-column {
-    padding-right: 0.5%;
-}
-
-.signin-column {
-    padding-left: 0.5%;
-}
-
-/* sign-in card modification for sign-in page */
-.signin-card, .signup-card {
-    margin-top: 15%;
-    padding: 3% 10%;
-    border-width: 1px;
-    border-radius: 10px;
-    border-color: #800000;
-    width: 85%;
-    height: 80%;
-}
-
-.signup-card {
-    float: right;
-}
-
 .inverted-img {
     filter: brightness(0) invert(1);
 }
 
-.signin-title, .signup-title {
-    text-align: center;
-    font-size: 38px;
-    margin: 5% 0%;
-    color: #800000;
-}
-
-.signup-title {
-    margin: 0% 0%;
-}
-
-.signin-input {
-    padding: 8% 5%;
-}
-
-.signin-btn {
-    text-align: center;
-}
-
-.signin-btn button {
-    padding: 3% 10%;
-    font-weight: 400;
-    font-size: 20px;
-    background-color: #800000;
-    border-color: #800000;
-}
-
-/* ####################### Home.php ####################### */
-
 .navbar.bg-light {
     width: 100%;
-    background-color: #800000!important;
+    background: linear-gradient(to right, #ffcce6, #fff0b3, #ccf2ff)!important;
 }
 
 /* Manual color for navbar-brand, activated nav-link and nav-link's focused state */
 .navbar-light .navbar-brand, .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link:focus {
-    color: #fff;
     font-size: 18px;
 }
 
@@ -87,88 +17,50 @@
 }
 
 .navbar-light .margin-left {
-    margin-left: 10%;
+    padding-left: 16%;
 }
 
 .margin-right {
-    margin-right: 10%;
+    padding-right: 16%;
 }
 
-/* For changing nav-link's default color from #000 to #bfbfbf */
-.navbar-light .navbar-nav .nav-link {
-    color: #bfbfbf;
+.ml-16-manual {
+    padding-top: 1%;
+    padding-left: 16%;
+}
+
+.mr-16-manual {
+    padding-top: 1%;
+    padding-right: 16%;
+}
+
+.card-note {
+    width: 100%;
+}
+
+.sidebar-link {
+    text-decoration: none;
+    color: #000;
+}
+
+.sidebar-link:hover {
+    text-decoration: none;
+    font-weight: 500;
 }
 
 /* For changing default hovering effect color from #000 to #fff */
 .navbar-light .navbar-nav .nav-link:hover {
-    color: #fff;
+    font-weight: 600;
 }
 
 /* Hovering efect for navbar-brand */
 .navbar-light .navbar-brand:hover{
-    color: #fff;
     font-weight: 500;
 }
 
 .border {
     padding: 0px 10px;
-    border: 1.5px solid!important;
+    border: 1px solid!important;
     border-radius: 8px;
     text-align: center;
-}
-
-.table-column {
-    padding-top: 0.5%;
-    padding-right: 0.4%;
-    padding-left: 1%;
-}
-
-/* For changning default table-hover's hover background-color from #e6e6e6 to #ffcccc */
-.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-    background-color: #ffe6e6;
-}
-
-.card-column {
-    padding-top: 0.5%;
-    padding-left: 1%;
-}
-
-.action-panel-column {
-    padding: auto;
-}
-
-.display-card {
-    text-align: center;
-    border-color: #800000;
-}
-
-.card-header:first-child {
-    border-color: #800000;
-}
-
-.table {
-    border: 1px solid #800000;
-}
-
-.table > thead > tr > th {
-    border: 1px solid #800000;
-}
-
-
-.action-card {
-    margin-top: 3%;
-}
-
-.btn-action {
-    padding: 2% 5%;
-    width: 45%;
-    background-color: #800000;
-    border-color: #800000;
-}
-
-.btn-delete {
-    padding: 2% 5%;
-    width: 50%;
-    background-color: #800000;
-    border-color: #800000;
 }
