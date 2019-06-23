@@ -1,5 +1,6 @@
 from noteshare import app
-from flask import render_template, url_for
+from flask import render_template, url_for, flash, redirect
+from noteshare.forms import RegistrationForm, LoginForm
 
 # dummy data for notes
 notes = [
@@ -8,7 +9,7 @@ notes = [
         'author': "Rushit Saliya",
         'title': "Git Commands",
         'content': "`git log` - For showing log of commits made by different contributors in current branches."
-    }, 
+    },
     {
         'id': '2',
         'author': "Priyank Vekariya",
@@ -51,3 +52,16 @@ notes = [
 @app.route('/home')
 def home():
     return render_template('home.html', title='Home', notes=notes)
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        flash(f'Account created for {form.username.data}!', 'success')
+        return redirect(url_for('home'))
+    return render_template('registration.html', title="Sign Up", form=form)
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    return render_template('login.html', title="Sign In", form=form)

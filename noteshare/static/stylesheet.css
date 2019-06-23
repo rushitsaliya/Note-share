@@ -25,6 +25,10 @@
     background-color: #fff;
 }
 
+.register-card {
+    padding: 1% 2%;
+}
+
 .note-action-btn, .note-action-btn:hover {
     margin-right: 2%;
     text-decoration: none;
@@ -35,12 +39,12 @@
     padding-right: 16%;
 }
 
-.ml-16-manual {
+.col-pl-16 {
     padding-top: 1%;
     padding-left: 16%;
 }
 
-.mr-16-manual {
+.col-pr-16 {
     padding-top: 1%;
     padding-right: 16%;
 }

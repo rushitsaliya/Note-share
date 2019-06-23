@@ -1,9 +1,18 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <div class="col-md-8 ml-16-manual">
+    <div class="col-md-8 col-pl-16">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         {% for note in notes %}
-            <div class="card card-note mb-md-2">
+            <div class="card mb-md-2">
                 <h5 class="card-header">{{ note.title }}</h5>
                 <div class="card-body">
                     <h5 class="card-title">By {{ note.author }}</h5>
@@ -17,8 +26,8 @@
             </div>
         {% endfor %}
     </div>
-    <div class="col-md-4 mr-16-manual">
-        <div class="card card-note">
+    <div class="col-md-4 col-pr-16">
+        <div class="card">
                 <div class="card-header" style="font-size: 18px;"><strong>Jump to...</strong></div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><a href="#" class="sidebar-link">Latest notes</a></li>
