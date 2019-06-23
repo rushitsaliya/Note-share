@@ -20,6 +20,17 @@
     padding-left: 16%;
 }
 
+.note-action {
+    border-top: 1px solid rgba(0,0,0,.125);
+    background-color: #fff;
+}
+
+.note-action-btn, .note-action-btn:hover {
+    margin-right: 2%;
+    text-decoration: none;
+    color: #000;
+}
+
 .margin-right {
     padding-right: 16%;
 }
@@ -32,10 +43,6 @@
 .mr-16-manual {
     padding-top: 1%;
     padding-right: 16%;
-}
-
-.card-note {
-    width: 100%;
 }
 
 .sidebar-link {
