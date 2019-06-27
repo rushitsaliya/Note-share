@@ -19,9 +19,8 @@
                     <p class="card-text">{{ note.content }}</p>
                 </div>
                 <div class="card-header note-action">
-                    <a class="note-action-btn" href="#"><img src="{{ url_for('static', filename='Icons/heart.svg') }}" alt="Like"> 0 </a>
-                    <a class="note-action-btn" href="#"><img src="{{ url_for('static', filename='Icons/message-circle.svg') }}" alt="Comment"> 0 </a>
-                    <a class="note-action-btn" href="#"><img src="{{ url_for('static', filename='Icons/share.svg') }}" alt="Share"> 0 </a>
+                    <a class="note-action-btn" href="#"><img src="{{ url_for('static', filename='Icons/arrow-up.svg') }}" alt="Like"> 0 </a>
+                    <a class="note-action-btn" href="#"><img src="{{ url_for('static', filename='Icons/arrow-down.svg') }}" alt="Comment"> 0 </a>
                 </div>
             </div>
         {% endfor %}

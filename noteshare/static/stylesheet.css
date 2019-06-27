@@ -9,11 +9,11 @@
 
 /* Manual color for navbar-brand, activated nav-link and nav-link's focused state */
 .navbar-light .navbar-brand, .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link:focus {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .navbar-light .navbar-brand {
-    font-size: 24px;
+    font-size: 22px;
 }
 
 .navbar-light .margin-left {
@@ -27,6 +27,10 @@
 
 .register-card {
     padding: 1% 2%;
+}
+
+.card-title {
+    font-size: 16px;
 }
 
 .note-action-btn, .note-action-btn:hover {
