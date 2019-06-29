@@ -2,6 +2,20 @@
     filter: brightness(0) invert(1);
 }
 
+.username-text {
+    font-size: 200%;
+    font-weight: 410;
+    margin-top: 3%;
+    margin-left: 5%;
+}
+
+.email-text {
+    font-size: 140%;
+    font-weight: 300;
+    margin-top: 1%;
+    margin-left: 5%;
+}
+
 .navbar.bg-light {
     width: 100%;
     background: linear-gradient(to right, #ffcce6, #fff0b3, #ccf2ff)!important;

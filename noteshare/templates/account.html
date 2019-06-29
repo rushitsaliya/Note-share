@@ -5,12 +5,12 @@
         <div class="card register-card">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-5">
-                        <img class="rounded-circle" src="{{ image_file }}" alt="{{ current_user.username }}'s Profile photo">
+                    <div class="col-md-3">
+                        <img class="rounded-circle mb-md-4" src="{{ image_file }}" alt="{{ current_user.username }}'s Profile photo">
                     </div>
-                    <div class="col-md-7">
-                        <strong>{{ current_user.username }}</strong><br/>
-                        <strong>{{ current_user.email }}</strong>  
+                    <div class="col-md-9">
+                        <div class="display-4 username-text">{{ current_user.username }}</div>
+                        <div class="display-5 email-text">{{ current_user.email }}</div>
                     </div>
                 </div>
                 <form action="" method="POST" enctype="multipart/form-data">
