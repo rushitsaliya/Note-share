@@ -11,7 +11,8 @@ from flask_login import login_user, logout_user, current_user, login_required
 @app.route('/')
 @app.route('/home')
 def home():
-    notes = Note.query.all()
+    page = request.args.get('page', 1, type=int)
+    notes = Note.query.order_by(Note.date_posted.desc()).paginate(page=page, per_page=5)
     return render_template('home.html', title='Home', notes=notes)
 
 
@@ -131,3 +132,11 @@ def delete_note(note_id):
     db.session.commit()
     flash('Your note has been deleted!', 'success')
     return redirect(url_for('home'))
+
+
+@app.route('/user/<string:username>')
+def user_notes(username):
+    page = request.args.get('page', 1, type=int)
+    user = User.query.filter_by(username=username).first_or_404()
+    notes = Note.query.filter_by(author=user).order_by(Note.date_posted.desc()).paginate(page=page, per_page=5)
+    return render_template('user_notes.html', title=user.username, notes=notes, user=user)

@@ -2,6 +2,7 @@
 
 {% block content %}
     <div class="col-md-8 col-pl-16">
+        <h5 class="text-muted mb-3">Notes by <span class="text-dark">{{ user.username }} ({{ notes.total }})</span></h5>
         {% for note in notes.items %}
             <div class="card mb-md-2">
                 <div class="card-header card-custom-header">
@@ -38,9 +39,9 @@
         {% for page_num in notes.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
             {% if page_num %}
                 {% if notes.page == page_num %}
-                    <a class="btn btn-info mb-4" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+                    <a class="btn btn-info mb-4" href="{{ url_for('user_notes', username=user.username, page=page_num) }}">{{ page_num }}</a>
                 {% else %}
-                    <a class="btn btn-outline-info mb-4" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+                    <a class="btn btn-outline-info mb-4" href="{{ url_for('user_notes', username=user.username, page=page_num) }}">{{ page_num }}</a>
                 {% endif %}
             {% else %}
                 ...
