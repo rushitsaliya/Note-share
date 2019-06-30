@@ -3,60 +3,17 @@ import secrets
 from PIL import Image
 from noteshare import app, db, bcrypt
 from noteshare.models import User, Note
-from flask import render_template, url_for, flash, redirect, request
-from noteshare.forms import RegistrationForm, LoginForm, UpdateAccountForm
+from flask import render_template, url_for, flash, redirect, request, abort
+from noteshare.forms import RegistrationForm, LoginForm, UpdateAccountForm, NoteForm
 from flask_login import login_user, logout_user, current_user, login_required
 
-# dummy data for notes
-notes = [
-    {
-        'id': '1',
-        'author': "Rushit Saliya",
-        'title': "Git Commands",
-        'content': "`git log` - For showing log of commits made by different contributors in current branches."
-    },
-    {
-        'id': '2',
-        'author': "Priyank Vekariya",
-        'title': "Python syntax",
-        'content': "Python doesn't use semicolons (;) anymore!"
-    },
-    {
-        'id': '3',
-        'author': "Hardik Khunt",
-        'title': "Django v/s Flask",
-        'content': "asdf asdfa sdfjasdgoia st asdkfhas e"
-    },
-    {
-        'id': '3',
-        'author': "Divyesh Patel",
-        'title': "Sublime text editor configuration",
-        'content': "asdfasdf sfa df asert dafasd fast sadsad  asd g"
-    },
-    {
-        'id': '4',
-        'author': "Jenil Popat",
-        'title': "VS Code extensions",
-        'content': "lkasjd flkasdjr oidu c"
-    },
-    {
-        'id': '5',
-        'author': "Rushit Saliya",
-        'title': "Python v/s JAVA",
-        'content': "Python doesn't use semicolons (;) anymore but JAVA does!"
-    },
-    {
-        'id': '6',
-        'author': "Priyank Vekariya",
-        'title': " Difference between React.js and React native",
-        'content': "nasdifj sdtrse asdkt s"
-    }
-]
 
 @app.route('/')
 @app.route('/home')
 def home():
+    notes = Note.query.all()
     return render_template('home.html', title='Home', notes=notes)
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -71,6 +28,7 @@ def register():
         flash(f'Account created for {form.username.data}! Now you can Sign in to your account', 'success')
         return redirect(url_for('login'))
     return render_template('registration.html', title="Sign Up", form=form)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -87,6 +45,7 @@ def login():
             flash(f'Login unsuccessful. Please check email and password!', 'danger')
     return render_template('login.html', title="Sign In", form=form)
 
+
 @app.route('/logout')
 def logout():
     logout_user()
@@ -102,7 +61,7 @@ def save_picture(form_picture):
     img = Image.open(form_picture)
     img.thumbnail(output_size)
     img.save(picture_path)
-    
+
     return picture_fn
 
 
@@ -124,3 +83,51 @@ def account():
         form.email.data = current_user.email
     image_file = url_for('static', filename='Profile-pictures/' + current_user.image_file)
     return render_template('account.html', title="Account", image_file=image_file, form=form)
+
+
+@app.route('/note/new', methods=['GET', 'POST'])
+@login_required
+def new_note():
+    form =  NoteForm()
+    if form.validate_on_submit():
+        note = Note(title=form.title.data, content=form.content.data, author=current_user)
+        db.session.add(note)
+        db.session.commit()
+        flash('Your post has been created!', 'success')
+        return redirect(url_for('home'))
+    return render_template('create_note.html', title="New Note", form=form, legend="New Note")
+
+
+@app.route('/note/<int:note_id>')
+def note(note_id):
+    note = Note.query.get_or_404(note_id)
+    return render_template('note.html', title=note.title, note=note)
+
+
+@app.route('/note/<int:note_id>/update', methods=['GET', 'POST'])
+def update_note(note_id):
+    note = Note.query.get_or_404(note_id)
+    if note.author != current_user:
+        abort(403)
+    form = NoteForm()
+    if form.validate_on_submit():
+        note.title = form.title.data
+        note.content = form.content.data
+        db.session.commit()
+        flash('Your note has been updated!', 'success')
+        return redirect(url_for('note', note_id=note.id))
+    elif request.method == 'GET':
+        form.title.data = note.title
+        form.content.data = note.content
+    return render_template('create_note.html', title="Update Note", form=form, legend="Update Note")
+
+
+@app.route('/note/<int:note_id>/delete', methods=['POST'])
+def delete_note(note_id):
+    note = Note.query.get_or_404(note_id)
+    if note.author != current_user:
+        abort(403)
+    db.session.delete(note)
+    db.session.commit()
+    flash('Your note has been deleted!', 'success')
+    return redirect(url_for('home'))

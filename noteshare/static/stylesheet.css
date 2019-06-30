@@ -93,3 +93,41 @@
     border-radius: 8px;
     text-align: center;
 }
+
+.card-custom-header {
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.note-header {
+    font-size: 120%;
+    font-weight: 350;
+}
+
+.note-title {
+    font-size: 170%;
+    font-weight: 500;
+}
+
+.note-header-img {
+    width: 10%;
+}
+
+.note-author-img {
+    object-fit: cover;
+    height: 80%;
+    width: 80%;
+}
+
+.anchor-note-update {
+    text-decoration: none;
+    color: #000;
+}
+
+.anchor-note-update:hover {
+    text-decoration: none;
+}
+
+.action-btns {
+    padding-top: 2%;
+}

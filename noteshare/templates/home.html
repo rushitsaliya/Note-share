@@ -4,14 +4,32 @@
     <div class="col-md-8 col-pl-16">
         {% for note in notes %}
             <div class="card mb-md-2">
-                <h5 class="card-header">{{ note.title }}</h5>
+                <div class="card-header card-custom-header">
+                    <a class="anchor-note-update" href="{{ url_for('note', note_id=note.id) }}">
+                        <div class="row">
+                            <div class="col-md-2 pr-md-0">
+                                <div class="note-header">
+                                    <img class="rounded-circle note-author-img" src="{{ url_for('static', filename='Profile-pictures/' + note.author.image_file) }}" alt="Author's Profile-photo">
+                                </div>
+                            </div>
+                            <div class="col-md-10 pl-md-0">
+                                <div class="note-header">
+                                    <strong>{{ note.author.username }}</strong><br/>
+                                    <div  class="text-muted" style="font-size: 85%;">
+                                        Posted on {{ note.date_posted.strftime('%Y-%m-%d') }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">By {{ note.author }}</h5>
-                    <p class="card-text">{{ note.content }}</p>
+                    <h5 class="card-title note-title">{{ note.title }}</h5>
+                    <p style="white-space: pre-line;">{{ note.content }}</p>
                 </div>
                 <div class="card-header note-action">
                     <a class="note-action-btn" href="#"><img src="{{ url_for('static', filename='Icons/arrow-up.svg') }}" alt="Like"> 0 </a>
-                    <a class="note-action-btn" href="#"><img src="{{ url_for('static', filename='Icons/arrow-down.svg') }}" alt="Comment"> 0 </a>
+                    <a class="note-action-btn" href="#"><img src="{{ url_for('static', filename='Icons/arrow-down.svg') }}" alt="Dislike"> 0 </a>
                 </div>
             </div>
         {% endfor %}

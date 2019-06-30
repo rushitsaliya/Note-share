@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="col-md-8 col-pl-16">
+        <div class="card register-card">
+            <div class="card-body">
+                <form action="" method="POST">
+                    {{ form.hidden_tag() }}
+                    <fieldset class="form-group mb-2">
+                        <legend class="border-bottom mb-3 pb-2">{{ legend }}</legend>
+                        <div class="form-group mb-2">
+                            {{ form.title.label(class="form-control-label mb-0") }}
+                            {% if form.title.errors %}
+                                {{ form.title(class="form-control form-control-lg is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.title.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}  
+                                    </div>
+                            {% else %}
+                                {{ form.title(class="form-control form-control-lg", autocomplete="off") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group mb-2">
+                                {{ form.content.label(class="form-control-label mb-0") }}
+                                {% if form.content.errors %}
+                                    {{ form.content(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.content.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}  
+                                        </div>
+                                {% else %}
+                                    {{ form.content(class="form-control form-control-lg") }}
+                                {% endif %}
+                        </div>
+                    </fieldset>
+                    <div class="form-group mb-2">
+                        {{ form.submit(class='btn btn-outline-info') }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

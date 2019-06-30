@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="col-md-8 col-pl-16">
+        <div class="card mb-md-2">
+            <div class="card-header card-custom-header">
+                <div class="row">
+                    <div class="col-md-2 pr-md-0">
+                        <div class="note-header">
+                            <img class="rounded-circle note-author-img" src="{{ url_for('static', filename='Profile-pictures/' + note.author.image_file) }}" alt="Author's Profile-photo">
+                        </div>
+                    </div>
+                    <div class="col-md-6 pl-md-0">
+                        <div class="note-header">
+                            <strong>{{ note.author.username }}</strong><br/>
+                            <div  class="text-muted" style="font-size: 85%;">
+                                Posted on {{ note.date_posted.strftime('%Y-%m-%d') }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4" style="margin-top: 2%; padding-left: 10%;">
+                        <a class="btn btn-primary btn-sm mt-1 mb-1 action-btns" href="{{ url_for('update_note', note_id=note.id) }}">Update</a>
+                        <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title note-title">{{ note.title }}</h5>
+                <p style="white-space: pre-line;">{{ note.content }}</p>
+            </div>
+            <div class="card-header note-action">
+                <a class="note-action-btn" href="#"><img src="{{ url_for('static', filename='Icons/arrow-up.svg') }}" alt="Like"> 0 </a>
+                <a class="note-action-btn" href="#"><img src="{{ url_for('static', filename='Icons/arrow-down.svg') }}" alt="Dislike"> 0 </a>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="deleteModalLongTitle">Delete Note?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <form action="{{ url_for('delete_note', note_id=note.id) }}" method="POST">
+                    <input class="btn btn-danger" type="submit" value="Delete">
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+{% endblock content %}
