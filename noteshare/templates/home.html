@@ -5,7 +5,7 @@
         {% for note in notes.items %}
             <div class="card mb-md-2">
                 <div class="card-header card-custom-header">
-                    <a class="anchor-note-update" href="{{ url_for('user_notes', username=note.author.username) }}">
+                    <a class="anchor-note-update" href="{{ url_for('notes.user_notes', username=note.author.username) }}">
                         <div class="row">
                             <div class="col-md-2 pr-md-0">
                                 <div class="note-header">
@@ -24,7 +24,7 @@
                     </a>
                 </div>
                 <div class="card-body">
-                    <a class="anchor-note-update" href="{{ url_for('note', note_id=note.id) }}">
+                    <a class="anchor-note-update" href="{{ url_for('notes.note', note_id=note.id) }}">
                         <h5 class="card-title note-title">{{ note.title }}</h5>
                     </a>
                     <p style="white-space: pre-line;">{{ note.content }}</p>
@@ -38,9 +38,9 @@
         {% for page_num in notes.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
             {% if page_num %}
                 {% if notes.page == page_num %}
-                    <a class="btn btn-info mb-4" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+                    <a class="btn btn-info mb-4" href="{{ url_for('main.home', page=page_num) }}">{{ page_num }}</a>
                 {% else %}
-                    <a class="btn btn-outline-info mb-4" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+                    <a class="btn btn-outline-info mb-4" href="{{ url_for('main.home', page=page_num) }}">{{ page_num }}</a>
                 {% endif %}
             {% else %}
                 ...
