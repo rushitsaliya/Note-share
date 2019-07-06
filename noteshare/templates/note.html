@@ -25,8 +25,13 @@
                 </div>
             </div>
             <div class="card-body">
-                <h5 class="card-title note-title">{{ note.title }}</h5>
-                <p style="white-space: pre-line;">{{ note.content }}</p>
+                <div class="row">
+                    <div class="col-md-2 pr-md-0"></div>
+                    <div class="col-md-10 pl-md-0">
+                        <h5 class="card-title note-title">{{ note.title }}</h5>
+                        <p style="white-space: pre-line;">{{ note.content }}</p>
+                    </div>
+                </div>
             </div>
             <div class="card-header note-action">
                 <a class="note-action-btn" href="#"><img src="{{ url_for('static', filename='Icons/arrow-up.svg') }}" alt="Like"> 0 </a>

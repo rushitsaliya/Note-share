@@ -5,34 +5,37 @@
         <h5 class="text-muted mb-3">Notes by <span class="text-dark">{{ user.username }} ({{ notes.total }})</span></h5>
         {% for note in notes.items %}
             <div class="card mb-md-2">
-                <div class="card-header card-custom-header">
-                    <a class="anchor-note-update" href="{{ url_for('notes.user_notes', username=note.author.username) }}">
-                        <div class="row">
-                            <div class="col-md-2 pr-md-0">
-                                <div class="note-header">
-                                    <img class="rounded-circle note-author-img" src="{{ url_for('static', filename='Profile-pictures/' + note.author.image_file) }}" alt="Author's Profile-photo">
-                                </div>
-                            </div>
-                            <div class="col-md-10 pl-md-0">
-                                <div class="note-header">
-                                    <strong>{{ note.author.username }}</strong><br/>
-                                    <div  class="text-muted" style="font-size: 85%;">
-                                        Posted on {{ note.date_posted.strftime('%Y-%m-%d') }}
-                                    </div>
-                                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-2 pr-0" style="max-width: 11.5%; padding-top: 1%; padding-left: 2.5%;">
+                            <div class="note-header">
+                                <img class="rounded-circle note-author-img" src="{{ url_for('static', filename='Profile-pictures/' + note.author.image_file) }}" alt="Author's Profile-photo">
                             </div>
                         </div>
-                    </a>
-                </div>
-                <div class="card-body">
-                    <a class="anchor-note-update" href="{{ url_for('notes.note', note_id=note.id) }}">
-                        <h5 class="card-title note-title">{{ note.title }}</h5>
-                    </a>
-                    <p style="white-space: pre-line;">{{ note.content }}</p>
-                </div>
-                <div class="card-header note-action">
-                    <a class="note-action-btn" href="#"><img src="{{ url_for('static', filename='Icons/arrow-up.svg') }}" alt="Like"> 0 </a>
-                    <a class="note-action-btn" href="#"><img src="{{ url_for('static', filename='Icons/arrow-down.svg') }}" alt="Dislike"> 0 </a>
+                        <div class="col-md-10 pl-0 pr-0" style="max-width: 88.5%;">
+                            <div class="note-header">
+                                <a class="anchor-note-username" href="{{ url_for('notes.user_notes', username=note.author.username) }}">
+                                    <strong>{{ note.author.username }}</strong>
+                                    <div  class="text-muted mb-1" style="font-size: 85%;">
+                                        Posted on {{ note.date_posted.strftime('%Y-%m-%d') }}
+                                    </div>
+                                    <div class="border-bottom mb-3"></div>
+                                </a>
+                                <a class="anchor-note-update" href="{{ url_for('notes.note', note_id=note.id) }}">
+                                        <h5 class="card-title note-title">{{ note.title }}</h5>
+                                </a>
+                                <p style="white-space: pre-line; font-size: 79%;">{{ note.content }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card-header note-action">
+                                <a class="note-action-btn" href="#"><img src="{{ url_for('static', filename='Icons/arrow-up.svg') }}" alt="Like"> 0 </a>
+                                <a class="note-action-btn" href="#"><img src="{{ url_for('static', filename='Icons/arrow-down.svg') }}" alt="Dislike"> 0 </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         {% endfor %}

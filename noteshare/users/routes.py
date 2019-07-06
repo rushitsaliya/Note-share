@@ -1,4 +1,5 @@
-from flask import render_template, url_for, flash, redirect, request, Blueprint
+import os
+from flask import render_template, url_for, flash, redirect, request, Blueprint, current_app
 from flask_login import login_user, current_user, logout_user, login_required
 from noteshare import db, bcrypt
 from noteshare.models import User, Note
@@ -51,6 +52,9 @@ def account():
     form = UpdateAccountForm()
     if form.validate_on_submit():
         if form.picture.data:
+            if current_user.image_file != 'default.jpg':
+                picture_path = os.path.join(current_app.root_path, 'static/Profile-pictures', current_user.image_file)
+                os.remove(picture_path)
             picture_filename = save_picture(form.picture.data)
             current_user.image_file = picture_filename
         current_user.username = form.username.data

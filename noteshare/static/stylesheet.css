@@ -36,6 +36,8 @@
 
 .note-action {
     border-top: 1px solid rgba(0,0,0,.125);
+    border-bottom: none;
+    padding: 1%;
     background-color: #fff;
 }
 
@@ -115,17 +117,32 @@
 
 .note-author-img {
     object-fit: cover;
-    height: 80%;
-    width: 80%;
+    height: 60%;
+    width: 60%;
 }
 
 .anchor-note-update {
     text-decoration: none;
     color: #000;
+    font-size: 70%;
 }
 
 .anchor-note-update:hover {
     text-decoration: none;
+}
+
+.anchor-note-username {
+    text-decoration: none;
+    color: #000;
+    font-size: 90%;
+}
+
+.anchor-note-username:hover {
+    text-decoration: none;
+}
+
+.card-body {
+    padding: 1% 2% 1% 2%;
 }
 
 .action-btns {
