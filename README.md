@@ -1,2 +1,2 @@
 # Note-share
-A social network site to share notes among your colleagues. (This repository is currently under development)
+A social network site to share notes among your colleagues. (This repository is currently under development. Once it gets finished with development, I'll make this README.md well documented!)
