@@ -44,15 +44,29 @@
                     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2 margin-right">
                         <ul class="navbar-nav ml-auto">
                             {% if current_user.is_authenticated %}
-                            <li class="nav-item">
-                                    <a class="nav-link" href="{{ url_for('notes.new_note') }}">New Note</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ url_for('users.account') }}">Account</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ url_for('users.logout') }}">Logout</a>
-                                </li>
+                                <div class="btn-group mr-2">
+                                    <button type="button" class="btn btn-outline-secondary btn-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img class="profile-dropdown" src="{{ url_for('static', filename='Icons/plus.svg') }}">
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{{ url_for('notes.new_note') }}">New note</a>
+                                        <a class="dropdown-item" href="#">New group</a>
+                                    </div>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-outline-secondary btn-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img class="rounded-circle profile-dropdown" src="{{ url_for('static', filename='Profile-pictures/' + current_user.image_file) }}">
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{{ url_for('main.home') }}">Signed in as</br><strong>{{ current_user.username }}</strong></a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{{ url_for('users.account') }}">Your profile</a>
+                                        <a class="dropdown-item" href="{{ url_for('notes.user_notes', username=current_user.username) }}">Your notes</a>
+                                        <a class="dropdown-item" href="#">Your groups</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{{ url_for('users.logout') }}">Logout</a>
+                                    </div>
+                                </div>
                             {% else %}
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ url_for('users.login') }}">Sign In</a>

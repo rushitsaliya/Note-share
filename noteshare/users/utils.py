@@ -14,7 +14,7 @@ def save_picture(form_picture):
 
     output_size = (125, 125)
     img = Image.open(form_picture)
-    img.thumbnail(output_size)
+    img.thumbnail(output_size, Image.ANTIALIAS)
     img.save(picture_path)
 
     return picture_fn

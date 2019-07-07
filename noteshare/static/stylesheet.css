@@ -111,14 +111,32 @@
     font-weight: 500;
 }
 
+/* Image section */
 .note-header-img {
     width: 10%;
 }
 
 .note-author-img {
+    border-radius: 50%;
     object-fit: cover;
-    height: 60%;
-    width: 60%;
+    height: 45px;
+    width: 45px;
+}
+
+.profile-picture {
+    height: 125px;
+    width: 125px;
+}
+
+.profile-dropdown {
+    height: 25px;
+    width: 25px;
+}
+
+/* Buttons */
+.btn-dropdown:hover {
+    color: #6c757d;
+    background-color: transparent;
 }
 
 .anchor-note-update {
