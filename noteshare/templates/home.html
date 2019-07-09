@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
+    {% set filter=request.args.get('filter') %}
     <div class="col-md-8 col-pl-16">
         {% for note in notes.items %}
             <div class="card mb-md-2">
@@ -41,9 +42,9 @@
         {% for page_num in notes.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
             {% if page_num %}
                 {% if notes.page == page_num %}
-                    <a class="btn btn-info mb-4" href="{{ url_for('main.home', page=page_num) }}">{{ page_num }}</a>
+                    <a class="btn btn-info mb-4" href="{{ url_for('main.home', page=page_num, filter=filter) }}">{{ page_num }}</a>
                 {% else %}
-                    <a class="btn btn-outline-info mb-4" href="{{ url_for('main.home', page=page_num) }}">{{ page_num }}</a>
+                    <a class="btn btn-outline-info mb-4" href="{{ url_for('main.home', page=page_num, filter=filter) }}">{{ page_num }}</a>
                 {% endif %}
             {% else %}
                 ...
@@ -52,12 +53,12 @@
     </div>
     <div class="col-md-4 col-pr-16">
         <div class="card">
-                <div class="card-header" style="font-size: 18px;"><strong>Jump to...</strong></div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><a href="#" class="sidebar-link">Latest notes</a></li>
-                    <li class="list-group-item"><a href="#" class="sidebar-link">Earlier notes</a></li>
-                    <li class="list-group-item"><a href="#" class="sidebar-link">Top notes</a></li>
-                </ul>
+            <div class="card-header" style="font-size: 18px;"><strong>Jump to...</strong></div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><a href="{{ url_for('main.home', filter='latest') }}" class="sidebar-link">Latest notes</a></li>
+                <li class="list-group-item"><a href="{{ url_for('main.home', filter='earlier') }}" class="sidebar-link">Earlier notes</a></li>
+                <li class="list-group-item"><a href="#" class="sidebar-link">Top notes</a></li>
+            </ul>
         </div>
     </div>
 {% endblock content %}
