@@ -108,3 +108,4 @@ venv.bak/
 /Scripts
 /tcl
 LICENSE.txt
+site.db
