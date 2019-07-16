@@ -34,8 +34,8 @@
                 </div>
             </div>
             <div class="card-header note-action">
-                <a class="note-action-btn" href="#"><img src="{{ url_for('static', filename='Icons/arrow-up.svg') }}" alt="Like"> 0 </a>
-                <a class="note-action-btn" href="#"><img src="{{ url_for('static', filename='Icons/arrow-down.svg') }}" alt="Dislike"> 0 </a>
+                <a class="note-action-btn" href="{{ url_for('notes.up_note', note_id=note.id, from_page=url_for('notes.note', note_id=note.id)) }}"><img src="{{ url_for('static', filename='Icons/arrow-up.svg') }}" alt="Like"> {{ note.ups }} </a>
+                <a class="note-action-btn" href="{{ url_for('notes.down_note', note_id=note.id, from_page=url_for('notes.note', note_id=note.id)) }}"><img src="{{ url_for('static', filename='Icons/arrow-down.svg') }}" alt="Dislike"> {{ note.downs }} </a>
             </div>
         </div>
     </div>
