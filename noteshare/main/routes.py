@@ -15,6 +15,6 @@ def home():
         notes = Note.query.order_by(Note.date_posted.desc()).paginate(page=page, per_page=5)
     elif filter == "earlier":
         notes = Note.query.order_by(Note.date_posted.asc()).paginate(page=page, per_page=5)
-    else:
-        pass
+    elif filter == "top":
+        notes = Note.query.order_by(Note.ups.desc()).paginate(page=page, per_page=5)
     return render_template('home.html', title='Home', notes=notes)

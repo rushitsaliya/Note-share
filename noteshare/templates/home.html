@@ -53,11 +53,12 @@
     </div>
     <div class="col-md-4 col-pr-16">
         <div class="card">
-            <div class="card-header" style="font-size: 18px;"><strong>Jump to...</strong></div>
+            <div class="card-header" style="font-size: 18px;"><strong>Quick filters</strong></div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"><a href="{{ url_for('main.home', filter='latest') }}" class="sidebar-link">Latest notes</a></li>
-                <li class="list-group-item"><a href="{{ url_for('main.home', filter='earlier') }}" class="sidebar-link">Earlier notes</a></li>
-                <li class="list-group-item"><a href="#" class="sidebar-link">Top notes</a></li>
+                <li class="list-group-item"><a href="{{ url_for('main.home', filter='earlier') }}"
+                class="sidebar-link">Earlier notes</a></li>
+                <li class="list-group-item"><a href="{{ url_for('main.home', filter='top') }}" class="sidebar-link">Top notes</a></li>
             </ul>
         </div>
     </div>
