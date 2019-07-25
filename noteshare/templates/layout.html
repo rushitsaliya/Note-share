@@ -22,18 +22,30 @@
         <div class="container-fluid">
             <div class="row">
                 <nav class="navbar navbar-expand-md navbar-light bg-light">
-                    <a class="navbar-brand margin-left" href="{{ url_for('main.home') }}">Note-share</a>
+                    <a class="navbar-brand" href="{{ url_for('main.home') }}">Note-share</a>
                     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                         <ul class="navbar-nav mr-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('main.home') }}">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Contact Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">About Us</a>
-                            </li>
+                            {% if current_user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('main.home') }}">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('notes.new_note') }}">New Note</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">New group</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('main.home') }}">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Contact Us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About Us</a>
+                                </li>
+                            {% endif %}
                         </ul>
                     </div>
                     <div class="nav-btn">
@@ -41,32 +53,23 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                     </div>
-                    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2 margin-right">
+                    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                         <ul class="navbar-nav ml-auto">
                             {% if current_user.is_authenticated %}
-                                <div class="btn-group mr-2">
-                                    <button type="button" class="btn btn-outline-secondary btn-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img class="profile-dropdown" src="{{ url_for('static', filename='Icons/plus.svg') }}">
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="{{ url_for('notes.new_note') }}">New note</a>
-                                        <a class="dropdown-item" href="#">New group</a>
+                                <li class="nav-item">
+                                    <div class="dropdown" style="float: right;">
+                                        <img class="rounded-circle profile-dropdown mr-1 mt-1 mb-1" src="{{ url_for('static', filename='Profile-pictures/' + current_user.image_file) }}">
+                                        <div class="dropdown-content">
+                                            <span class="border-bottom">
+                                                Signed in as</br><strong>{{ current_user.username }}</strong>
+                                            </span>
+                                            <a href="{{ url_for('users.account') }}">Account</a>
+                                            <a href="{{ url_for('notes.user_notes', username=current_user.username) }}">Notes</a>
+                                            <a class="border-bottom" href="#">Groups</a>
+                                            <a href="{{ url_for('users.logout') }}">Logout</a>
+                                        </div>                                    
                                     </div>
-                                </div>
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary btn-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img class="rounded-circle profile-dropdown" src="{{ url_for('static', filename='Profile-pictures/' + current_user.image_file) }}">
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="{{ url_for('main.home') }}">Signed in as</br><strong>{{ current_user.username }}</strong></a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="{{ url_for('users.account') }}">Your profile</a>
-                                        <a class="dropdown-item" href="{{ url_for('notes.user_notes', username=current_user.username) }}">Your notes</a>
-                                        <a class="dropdown-item" href="#">Your groups</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="{{ url_for('users.logout') }}">Logout</a>
-                                    </div>
-                                </div>
+                                </li>
                             {% else %}
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ url_for('users.login') }}">Sign In</a>

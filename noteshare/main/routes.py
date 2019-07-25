@@ -4,6 +4,10 @@ from noteshare.models import Note
 main = Blueprint('main', __name__)
 
 @main.route('/')
+def index():
+    return render_template('index.html')
+
+
 @main.route('/home', methods=['GET'])
 def home():
     page = request.args.get('page', 1, type=int)

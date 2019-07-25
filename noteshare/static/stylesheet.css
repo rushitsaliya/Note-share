@@ -128,11 +128,6 @@
     width: 125px;
 }
 
-.profile-dropdown {
-    height: 25px;
-    width: 25px;
-}
-
 /* Buttons */
 .btn-dropdown:hover {
     color: #6c757d;
@@ -166,3 +161,51 @@
 .action-btns {
     padding-top: 2%;
 }
+
+.profile-dropdown {
+    height: 33px;
+    width: 33px;
+}
+
+.profile-dropdown:hover {
+    height: 37px;
+    width: 37px;
+    border: 2px solid #9999ff;
+}
+
+
+.seprator {
+    border-right: 1px solid #000;
+}
+
+/**********************************************************/
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a, .dropdown-content span {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover, .dropdown-content span:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+/**********************************************************/
