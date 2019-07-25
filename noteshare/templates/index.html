@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Bootstrap-4/css/bootstrap-grid.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Bootstrap-4/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheet.css') }}">
+        <title>Note-Share</title>
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="navbar navbar-expand-md navbar-light bg-light">
+                    <a class="navbar-brand" href="{{ url_for('main.index') }}"><img class="brand-logo" src="{{ url_for('static', filename='Icons/logo.png') }}"></a>
+                    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2 pt-1">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">What's new?</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-btn">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2"   aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                        <ul class="navbar-nav ml-auto">
+                            {% if current_user.is_authenticated %}
+                                <li class="nav-item">
+                                    <div class="dropdown" style="float: right;">
+                                        <img class="rounded-circle profile-dropdown mr-1 mt-1 mb-1" src="{{ url_for('static', filename='Profile-pictures/' + current_user.image_file) }}">
+                                        <div class="dropdown-content">
+                                            <span class="border-bottom">
+                                                Signed in as</br><strong>{{ current_user.username }}</strong>
+                                            </span>
+                                            <a href="{{ url_for('users.account') }}">Account</a>
+                                            <a href="{{ url_for('notes.user_notes', username=current_user.username) }}">Notes</a>
+                                            <a class="border-bottom" href="#">Groups</a>
+                                            <a href="{{ url_for('users.logout') }}">Logout</a>
+                                        </div>                                    
+                                    </div>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('users.login') }}">Sign In</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('users.register') }}">Sign Up</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+        </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+
+</html>

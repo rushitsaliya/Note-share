@@ -1,14 +1,17 @@
 from flask import render_template, request, Blueprint
+from flask_login import login_required
 from noteshare.models import Note
 
 main = Blueprint('main', __name__)
 
 @main.route('/')
+@main.route('/index')
 def index():
     return render_template('index.html')
 
 
 @main.route('/home', methods=['GET'])
+@login_required
 def home():
     page = request.args.get('page', 1, type=int)
     filter = request.args.get('filter', None)
