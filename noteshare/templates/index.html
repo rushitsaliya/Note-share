@@ -20,7 +20,7 @@
                     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2 pt-1">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">What's new?</a>
+                                <a class="nav-link" href="#">What's New</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Contact Us</a>
@@ -37,39 +37,163 @@
                     </div>
                     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                         <ul class="navbar-nav ml-auto">
-                            {% if current_user.is_authenticated %}
-                                <li class="nav-item">
-                                    <div class="dropdown" style="float: right;">
-                                        <img class="rounded-circle profile-dropdown mr-1 mt-1 mb-1" src="{{ url_for('static', filename='Profile-pictures/' + current_user.image_file) }}">
-                                        <div class="dropdown-content">
-                                            <span class="border-bottom">
-                                                Signed in as</br><strong>{{ current_user.username }}</strong>
-                                            </span>
-                                            <a href="{{ url_for('users.account') }}">Account</a>
-                                            <a href="{{ url_for('notes.user_notes', username=current_user.username) }}">Notes</a>
-                                            <a class="border-bottom" href="#">Groups</a>
-                                            <a href="{{ url_for('users.logout') }}">Logout</a>
-                                        </div>                                    
-                                    </div>
-                                </li>
-                            {% else %}
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ url_for('users.login') }}">Sign In</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ url_for('users.register') }}">Sign Up</a>
-                                </li>
-                            {% endif %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('users.login') }}">Sign In</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('users.register') }}">Sign Up</a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
             </div>
-            <div class="row">
-                <div class="col-md-8">
+            <div class="row background-picture pt-4 pb-4">
+                <div class="col-md-7 content-center text-tagline">
+                    Create notes and <strong><img class="brand-logo-embadded" src="{{ url_for('static', filename='Icons/logo.png') }}"></strong> it!
+                    <p class="text-para">
+                        Note-Share lets you share your crucial notes publicly or privately among group of people.
+                        It can be helpful for office-work as well as for educational purpose.
+                    </p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5 content-center">
+                    <img class="gif-head" src="{{ url_for('static', filename='GIFs/intro.gif') }}">
                 </div>
             </div>
+            <div class="row">
+                <div class="col-12 content-center">
+                    <p class="display-4 text-content mt-md-4 mb-md-0">
+                        Get started with <strong>Note-Share</strong><br/>
+                        <p class="text-muted">
+                            Take your ideas and thoughts sharing process to the next level by creating an account in Note-Share
+                        </p>
+                        <a class="btn btn-outline-primary mb-md-4" href="{{ url_for('users.register') }}">Sign Up</a>
+                    </p>
+                    <div class="display-4 mt-md-5 mb-md-4">Features</div>
+
+                    <div class="row mb-md-5 pt-md-4">
+                            <div class="col-md-7 text-heading content-center">
+                                <div class="display-4 text-heading">
+                                    Create new notes
+                                    <div style="font-size: 70%;">
+                                        Create notes easier than ever!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5 pr-md-5">
+                                <img class="gif-head" src="{{ url_for('static', filename='GIFs/create-note.gif') }}">
+                            </div>
+                    </div>
+                    
+                    <div class="row pt-md-4 mt-md-2 mb-md-5">
+                        <div class="col-md-5 pl-md-5">
+                            <img class="gif-head" src="{{ url_for('static', filename='GIFs/update-and-delete.gif') }}">
+                        </div>
+                        <div class="col-md-7 text-heading content-center">
+                            <div class="display-4 text-heading">
+                                Update and delete notes
+                                <div style="font-size: 70%;">
+                                    Update and delete your earlier notes within just few steps!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+                
+            <div class="row mt-md-5">
+                <div class="col-12">
+                    <footer class="page-footer font-small unique-color-dark">
+                        <div style="background: linear-gradient(to right, #ffcce6, #fff0b3, #ccf2ff)!important; color: #000;">
+                            <div class="container">
+                                <div class="row py-4 d-flex align-items-center">
+                                    <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                                        <h6 class="mb-0">Get connected with us on social networks!</h6>
+                                    </div>
+                                    <div class="col-md-6 col-lg-7 text-center text-md-right">
+                                        <!-- Facebook -->
+                                        <a class="fb-ic">
+                                            <i class="fab fa-facebook-f white-text mr-4"><img src="{{ url_for('static', filename='Icons/facebook.svg') }}"></i>
+                                        </a>
+                                        <!-- Twitter -->
+                                        <a class="tw-ic">
+                                            <i class="fab fa-twitter white-text mr-4"><img src="{{ url_for('static', filename='Icons/twitter.svg') }}"></i>
+                                        </a>
+                                        <!-- Github -->
+                                        <a class="github-ic">
+                                            <i class="fab fa-github white-text mr-4"><img src="{{ url_for('static', filename='Icons/github.svg') }}"></i>
+                                        </a>
+                                        <!--Linkedin -->
+                                        <a class="li-ic">
+                                            <i class="fab fa-linkedin-in white-text mr-4"><img src="{{ url_for('static', filename='Icons/linkedin.svg') }}"></i>
+                                        </a>
+                                        <!--Instagram-->
+                                        <a class="ins-ic">
+                                            <i class="fab fa-instagram white-text"><img src="{{ url_for('static', filename='Icons/instagram.svg') }}"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container text-center text-md-left mt-5">
+                            <div class="row mt-3">
+                                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                                    <h6 class="text-uppercase font-weight-bold">Company name</h6>
+                                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                                    <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+                                        consectetur
+                                        adipisicing elit.</p>
+                                </div>
+                                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                                    <h6 class="text-uppercase font-weight-bold">Products</h6>
+                                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                                    <p>
+                                        <a href="#!">Product1</a>
+                                    </p>
+                                    <p>
+                                        <a href="#!">Product2</a>
+                                    </p>
+                                    <p>
+                                        <a href="#!">Product3</a>
+                                    </p>
+                                    <p>
+                                        <a href="#!">Product4</a>
+                                    </p>
+                                </div>
+                                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                                    <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+                                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                                    <p>
+                                        <a href="#!">Your Account</a>
+                                    </p>
+                                    <p>
+                                        <a href="#!">Become an Affiliate</a>
+                                    </p>
+                                    <p>
+                                        <a href="#!">Shipping Rates</a>
+                                    </p>
+                                    <p>
+                                        <a href="#!">Help</a>
+                                    </p>
+                                </div>
+                                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                                    <h6 class="text-uppercase font-weight-bold">Contact</h6>
+                                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                                    <p>
+                                        <i class="fas fa-home mr-3"><img src="{{ url_for('static', filename='Icons/home.svg') }}"></i> Gauridad, RJ-360006, India</p>
+                                    <p>
+                                        <i class="fas fa-envelope mr-3"><img src="{{ url_for('static', filename='Icons/mail.svg') }}"></i> info@example.com</p>
+                                    <p>
+                                        <i class="fas fa-phone mr-3"><img src="{{ url_for('static', filename='Icons/phone.svg') }}"></i> + 01 234 567 88</p>
+                                    <p>
+                                        <i class="fas fa-print mr-3"><img src="{{ url_for('static', filename='Icons/phone.svg') }}"></i> + 01 234 567 89</p>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+
         </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -178,7 +178,52 @@
     height: 14%;
 }
 
-/**********************************************************/
+.brand-logo-embadded {
+    width: 180px;
+    height: 20%;
+}
+
+.content-center {
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+    align-content: center;
+}
+
+.background-picture {
+    background-image: url("./Icons/sticky-notes.jpg");
+    -webkit-filter: grayscale(20%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(20%);
+}
+
+.text-tagline {
+    font-size: 250%;
+}
+
+.text-para {
+    padding-left: 15%;
+    text-align: left;
+    font-size: 50%;
+    color: #000;
+}
+
+.text-content {
+    padding-top: 2%;
+    font-size: 200%;
+}
+
+.text-heading {
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 150%;
+}
+
+.gif-head {
+    width: 100%;
+    height: 100%;
+}
+
+/**************************** Dropdown Menu ******************************/
 .dropdown {
     position: relative;
     display: inline-block;
