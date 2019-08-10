@@ -36,3 +36,7 @@ def contact_us():
         send_contact_email(form.name.data, form.email.data, form.message.data)
         flash(f'Your message has been received. You\'ll get a reply from us very soon!', 'success')
     return render_template('contact_us.html', title='Contact Us', form=form)
+
+@main.route('/about-us')
+def about_us():
+    return render_template('about_us.html')

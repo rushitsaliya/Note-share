@@ -254,3 +254,55 @@
     display: block;
 }
 /**********************************************************/
+
+/****************************     Keyur Ranpariya     *****************************/
+.row1{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 0px;
+  }
+
+
+.column {
+    flex: 25%;
+    max-width: 23%;
+    margin-left: 2%;
+    padding: 0px 10px;
+    min-height: 380px;
+    border: 1px solid #d9d9d9;
+    border-radius: 10px; 
+    margin-bottom: 10px;
+  }
+
+  .column:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.80);
+    transition: all 0.3s ease;
+  }
+  
+  .column img {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    vertical-align: middle;
+    width: 100%;
+    border-radius: 50%; 
+  }
+
+  .content-center p{
+    font-size: 17px;
+}
+
+@media screen and (max-width: 800px) {
+    .column{
+      flex: 50%;
+      max-width: 50%;
+    }
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column {
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
+/*********************************************************/

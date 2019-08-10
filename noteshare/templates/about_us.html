@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Bootstrap-4/css/bootstrap-grid.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Bootstrap-4/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheet.css') }}">
+    <title>Note-Share - About Us</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="navbar navbar-expand-md navbar-light bg-light">
+                <a class="navbar-brand" href="{{ url_for('main.index') }}"><img class="brand-logo"
+                        src="{{ url_for('static', filename='Icons/logo.png') }}"></a>
+                <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2 pt-1">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">What's New</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('main.contact_us') }}">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('main.about_us') }}">About Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-btn">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2"
+                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('users.login') }}">Sign In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('users.register') }}">Sign Up</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <h1 class="display-4" style="font-size: 290%; text-align: center;margin-top: 5%;margin-bottom: 3%;color:#292525">Our Team</h1>
+
+        <div class="row1">
+            <div class="column" style="margin-left: 13px">
+                <img src="{{ url_for('static', filename='Icons/Rushit.jpg') }}" alt="photo">
+                <div class="content-center">
+                    <p class="display-4" style="font-size: 150%; font-weight: 350;">Rushit Saliya</p>
+                    <span class="text-muted">Web Devloper</span>
+                </div>
+            </div>
+            <div class="column"> 
+                <img src="{{ url_for('static', filename='Icons/Ankit.jpg') }}" alt="photo">
+                <div class="content-center">
+                    <p class="display-4" style="font-size: 150%; font-weight: 350;">Ankit Mangukiya</p>
+                    <span class="text-muted">Web Designer</span>
+                </div>
+            </div>
+            <div class="column"> 
+                <img src="{{ url_for('static', filename='Icons/Keyur.jpg') }}" alt="photo">
+                <div class="content-center">
+                    <p class="display-4" style="font-size: 150%; font-weight: 350;">Keyur Ranpariya</p>
+                    <span class="text-muted">Web Designer</span>
+                </div>
+            </div>
+            <div class="column"> 
+                <img src="{{ url_for('static', filename='Icons/Dhaval.jpg') }}" alt="photo">
+                <div class="content-center">
+                    <p class="display-4" style="font-size: 150%; font-weight: 350;">Dhaval Sanghani</p>
+                    <span class="text-muted">Graphic Desisgner</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-md-5">
+            <div class="col-12">
+                <footer class="page-footer font-small unique-color-dark">
+                    <div style="background: linear-gradient(to right, #ffcce6, #fff0b3, #ccf2ff)!important; color: #000;">
+                        <div class="container">
+                            <div class="row py-4 d-flex align-items-center">
+                                <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                                    <h6 class="mb-0">Get connected with us on social networks!</h6>
+                                </div>
+                                <div class="col-md-6 col-lg-7 text-center text-md-right">
+                                    <!-- Facebook -->
+                                    <a class="fb-ic">
+                                        <i class="fab fa-facebook-f white-text mr-4"><img
+                                                src="{{ url_for('static', filename='Icons/facebook.svg') }}"></i>
+                                    </a>
+                                    <!-- Twitter -->
+                                    <a class="tw-ic">
+                                        <i class="fab fa-twitter white-text mr-4"><img
+                                                src="{{ url_for('static', filename='Icons/twitter.svg') }}"></i>
+                                    </a>
+                                    <!-- Github -->
+                                    <a class="github-ic">
+                                        <i class="fab fa-github white-text mr-4"><img
+                                                src="{{ url_for('static', filename='Icons/github.svg') }}"></i>
+                                    </a>
+                                    <!--Linkedin -->
+                                    <a class="li-ic">
+                                        <i class="fab fa-linkedin-in white-text mr-4"><img
+                                                src="{{ url_for('static', filename='Icons/linkedin.svg') }}"></i>
+                                    </a>
+                                    <!--Instagram-->
+                                    <a class="ins-ic">
+                                        <i class="fab fa-instagram white-text"><img
+                                                src="{{ url_for('static', filename='Icons/instagram.svg') }}"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container text-center text-md-left mt-5">
+                        <div class="row mt-3">
+                            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                                <h6 class="text-uppercase font-weight-bold">Note-Share</h6>
+                                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                                <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor
+                                    sit amet,
+                                    consectetur
+                                    adipisicing elit.</p>
+                            </div>
+                            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                                <h6 class="text-uppercase font-weight-bold">Products</h6>
+                                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                                <p>
+                                    <a href="#!">Product1</a>
+                                </p>
+                                <p>
+                                    <a href="#!">Product2</a>
+                                </p>
+                                <p>
+                                    <a href="#!">Product3</a>
+                                </p>
+                                <p>
+                                    <a href="#!">Product4</a>
+                                </p>
+                            </div>
+                            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                                <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+                                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                                <p>
+                                    <a href="#">What's New</a>
+                                </p>
+                                <p>
+                                    <a href="{{ url_for('main.contact_us') }}">Contact Us</a>
+                                </p>
+                                <p>
+                                    <a href="{{ url_for('main.about_us') }}">About Us</a>
+                                </p>
+                            </div>
+                            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                                <h6 class="text-uppercase font-weight-bold">Contact</h6>
+                                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                                <p>
+                                    <i class="fas fa-home mr-3"><img
+                                            src="{{ url_for('static', filename='Icons/home.svg') }}"></i> Gauridad,
+                                    RJ-360006, India</p>
+                                <p>
+                                    <i class="fas fa-envelope mr-3"><img
+                                            src="{{ url_for('static', filename='Icons/mail.svg') }}"></i>
+                                    rushitsaliya99@gmail.com</p>
+                                <p>
+                                    <i class="fas fa-phone mr-3"><img
+                                            src="{{ url_for('static', filename='Icons/phone.svg') }}"></i> + 01 234 567
+                                    88</p>
+                                <p>
+                                    <i class="fas fa-print mr-3"><img
+                                            src="{{ url_for('static', filename='Icons/phone.svg') }}"></i> + 01 234 567
+                                    89</p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
